@@ -29,20 +29,6 @@ export default function StudentLogin() {
 
     return (
         <div className="page-center">
-            {/* Ambient blobs */}
-            <div style={{
-                position: 'fixed', top: '-10%', left: '-10%',
-                width: '500px', height: '500px', borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(245,158,11,0.06) 0%, transparent 70%)',
-                pointerEvents: 'none'
-            }} />
-            <div style={{
-                position: 'fixed', bottom: '-10%', right: '-10%',
-                width: '400px', height: '400px', borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(124,58,237,0.06) 0%, transparent 70%)',
-                pointerEvents: 'none'
-            }} />
-
             <div className="auth-card" style={{ position: 'relative' }}>
                 {/* Back */}
                 <Link to="/" style={{
@@ -50,7 +36,7 @@ export default function StudentLogin() {
                     color: 'var(--text-muted)', fontSize: '13px', fontWeight: 600,
                     marginBottom: '28px', transition: 'color 0.2s'
                 }}
-                    onMouseEnter={e => e.currentTarget.style.color = 'var(--saffron)'}
+                    onMouseEnter={e => e.currentTarget.style.color = 'var(--amber)'}
                     onMouseLeave={e => e.currentTarget.style.color = 'var(--text-muted)'}
                 >
                     ← Back to Home
@@ -117,7 +103,7 @@ export default function StudentLogin() {
 
                 <div style={{ textAlign: 'center', fontSize: '14px', color: 'var(--text-secondary)' }}>
                     New student?{' '}
-                    <Link to="/student/register" style={{ color: 'var(--saffron)', fontWeight: 700 }}>
+                    <Link to="/student/register" style={{ color: 'var(--amber-dark)', fontWeight: 700 }}>
                         Create account →
                     </Link>
                 </div>

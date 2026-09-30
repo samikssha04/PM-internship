@@ -29,26 +29,13 @@ export default function CompanyLogin() {
 
     return (
         <div className="page-center">
-            <div style={{
-                position: 'fixed', top: '-10%', right: '-10%',
-                width: '500px', height: '500px', borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(124,58,237,0.08) 0%, transparent 70%)',
-                pointerEvents: 'none'
-            }} />
-            <div style={{
-                position: 'fixed', bottom: '-10%', left: '-10%',
-                width: '400px', height: '400px', borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(245,158,11,0.05) 0%, transparent 70%)',
-                pointerEvents: 'none'
-            }} />
-
             <div className="auth-card">
                 <Link to="/" style={{
                     display: 'inline-flex', alignItems: 'center', gap: '6px',
                     color: 'var(--text-muted)', fontSize: '13px', fontWeight: 600,
                     marginBottom: '28px', transition: 'color 0.2s'
                 }}
-                    onMouseEnter={e => e.currentTarget.style.color = 'var(--violet-light)'}
+                    onMouseEnter={e => e.currentTarget.style.color = 'var(--terracotta)'}
                     onMouseLeave={e => e.currentTarget.style.color = 'var(--text-muted)'}
                 >
                     ← Back to Home
@@ -56,21 +43,14 @@ export default function CompanyLogin() {
 
                 <div className="auth-logo">
                     <div className="logo-badge" style={{
-                        color: 'var(--violet-light)',
-                        borderColor: 'rgba(124,58,237,0.3)',
-                        background: 'linear-gradient(135deg, rgba(124,58,237,0.12), rgba(109,40,217,0.08))'
+                        color: 'var(--terracotta)',
+                        borderColor: 'rgba(192,81,58,0.3)',
+                        background: 'var(--terracotta-soft)'
                     }}>
                         🏢 Company Portal
                     </div>
-                    <h2 style={{
-                        background: 'linear-gradient(135deg, #fff 20%, var(--violet-light) 100%)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        backgroundClip: 'text'
-                    }}>
-                        Welcome Back
-                    </h2>
-                    <p>Sign in to view your matched candidates</p>
+                    <h2>Welcome Back</h2>
+                    <p>Sign in to discover matched candidates</p>
                 </div>
 
                 {error && (
@@ -88,7 +68,6 @@ export default function CompanyLogin() {
                                 name="email" type="email"
                                 placeholder="hr@company.com"
                                 value={form.email} onChange={handleChange} required
-                                style={{ '--focus-color': 'var(--violet)' }}
                             />
                         </div>
                     </div>
@@ -108,7 +87,7 @@ export default function CompanyLogin() {
                         className="btn btn-secondary"
                         type="submit"
                         disabled={loading}
-                        style={{ width: '100%', padding: '15px', fontSize: '15px', fontWeight: 800, marginTop: '8px' }}
+                        style={{ width: '100%', padding: '14px', fontSize: '15px', fontWeight: 800, marginTop: '8px' }}
                     >
                         {loading ? (
                             <>
@@ -129,7 +108,7 @@ export default function CompanyLogin() {
 
                 <div style={{ textAlign: 'center', fontSize: '14px', color: 'var(--text-secondary)' }}>
                     New company?{' '}
-                    <Link to="/company/register" style={{ color: 'var(--violet-light)', fontWeight: 700 }}>
+                    <Link to="/company/register" style={{ color: 'var(--terracotta)', fontWeight: 700 }}>
                         Register here →
                     </Link>
                 </div>

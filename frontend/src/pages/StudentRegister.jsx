@@ -33,20 +33,13 @@ export default function StudentRegister() {
 
     return (
         <div className="page-center" style={{ alignItems: 'flex-start', paddingTop: '40px', paddingBottom: '40px' }}>
-            <div style={{
-                position: 'fixed', top: 0, left: 0,
-                width: '400px', height: '400px', borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(245,158,11,0.06) 0%, transparent 70%)',
-                pointerEvents: 'none', transform: 'translate(-30%, -30%)'
-            }} />
-
             <div className="auth-card" style={{ maxWidth: '520px' }}>
                 <Link to="/student/login" style={{
                     display: 'inline-flex', alignItems: 'center', gap: '6px',
                     color: 'var(--text-muted)', fontSize: '13px', fontWeight: 600,
                     marginBottom: '28px', transition: 'color 0.2s'
                 }}
-                    onMouseEnter={e => e.currentTarget.style.color = 'var(--saffron)'}
+                    onMouseEnter={e => e.currentTarget.style.color = 'var(--amber-dark)'}
                     onMouseLeave={e => e.currentTarget.style.color = 'var(--text-muted)'}
                 >
                     ← Already have an account?
@@ -118,8 +111,8 @@ export default function StudentRegister() {
                         {loading ? (
                             <>
                                 <span style={{
-                                    width: '16px', height: '16px', border: '2px solid rgba(0,0,0,0.25)',
-                                    borderTopColor: '#000', borderRadius: '50%',
+                                    width: '16px', height: '16px', border: '2px solid rgba(255,255,255,0.3)',
+                                    borderTopColor: '#fff', borderRadius: '50%',
                                     animation: 'spin 0.75s linear infinite', display: 'inline-block'
                                 }} />
                                 Creating account...
@@ -130,7 +123,7 @@ export default function StudentRegister() {
 
                 <div style={{ textAlign: 'center', marginTop: '20px', fontSize: '14px', color: 'var(--text-secondary)' }}>
                     Already registered?{' '}
-                    <Link to="/student/login" style={{ color: 'var(--saffron)', fontWeight: 700 }}>
+                    <Link to="/student/login" style={{ color: 'var(--amber-dark)', fontWeight: 700 }}>
                         Sign in →
                     </Link>
                 </div>

@@ -68,7 +68,7 @@ export default function AdminPanel() {
             {/* Navbar */}
             <nav className="navbar">
                 <div className="brand">
-                    <span>⚙️</span> Admin Panel
+                    <span>⚙️</span> Admin <span className="accent">Panel</span>
                 </div>
                 <div className="nav-right">
                     <Link to="/" className="btn btn-outline" style={{ fontSize: '13px', padding: '8px 18px' }}>
@@ -81,23 +81,23 @@ export default function AdminPanel() {
 
                 {/* Stats Overview */}
                 <div style={{
-                    display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '14px',
+                    display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '14px',
                     marginBottom: '32px', animation: 'fadeUp 0.4s ease both'
                 }}>
-                    <div className="stat-card" style={{ borderTop: '3px solid var(--saffron)' }}>
+                    <div className="stat-card" style={{ borderTop: '3px solid var(--amber)' }}>
                         <div className="stat-num">{students.length}</div>
                         <div className="stat-label">Total Students</div>
                     </div>
-                    <div className="stat-card" style={{ borderTop: '3px solid var(--emerald)' }}>
-                        <div className="stat-num" style={{ color: 'var(--emerald)' }}>{recommendedCount}</div>
+                    <div className="stat-card" style={{ borderTop: '3px solid var(--sage)' }}>
+                        <div className="stat-num" style={{ color: 'var(--sage)' }}>{recommendedCount}</div>
                         <div className="stat-label">Recommended</div>
                     </div>
-                    <div className="stat-card" style={{ borderTop: '3px solid var(--violet-light)' }}>
-                        <div className="stat-num" style={{ color: 'var(--violet-light)' }}>{companies.length}</div>
+                    <div className="stat-card" style={{ borderTop: '3px solid var(--terracotta)' }}>
+                        <div className="stat-num" style={{ color: 'var(--terracotta)' }}>{companies.length}</div>
                         <div className="stat-label">Companies</div>
                     </div>
-                    <div className="stat-card" style={{ borderTop: '3px solid var(--blue-light)' }}>
-                        <div className="stat-num" style={{ color: 'var(--blue-light)' }}>{questions.length}</div>
+                    <div className="stat-card" style={{ borderTop: '3px solid var(--amber-dark)' }}>
+                        <div className="stat-num" style={{ color: 'var(--amber-dark)' }}>{questions.length}</div>
                         <div className="stat-label">Questions</div>
                     </div>
                 </div>
@@ -105,7 +105,7 @@ export default function AdminPanel() {
                 {/* Tab Navigation */}
                 <div style={{
                     display: 'flex', gap: '6px', marginBottom: '24px', flexWrap: 'wrap',
-                    background: 'rgba(255,255,255,0.03)', border: '1px solid var(--border)',
+                    background: 'var(--bg-warm)', border: '1px solid var(--border)',
                     borderRadius: '14px', padding: '6px'
                 }}>
                     {TABS.map(t => (
@@ -118,9 +118,9 @@ export default function AdminPanel() {
                                 fontSize: '13px', fontWeight: 700,
                                 display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '7px',
                                 transition: 'all 0.2s',
-                                background: tab === t.id ? 'linear-gradient(135deg, var(--violet), #6d28d9)' : 'transparent',
-                                color: tab === t.id ? '#fff' : 'var(--text-muted)',
-                                boxShadow: tab === t.id ? '0 4px 14px rgba(124,58,237,0.3)' : 'none'
+                                background: tab === t.id ? 'var(--amber)' : 'transparent',
+                                color: tab === t.id ? '#fff' : 'var(--text-secondary)',
+                                boxShadow: tab === t.id ? '0 4px 14px var(--amber-glow)' : 'none'
                             }}
                         >
                             <span>{t.icon}</span> {t.label}
@@ -131,7 +131,11 @@ export default function AdminPanel() {
                 {/* ── Add Question Tab ── */}
                 {tab === 'Add Question' && (
                     <div className="card animate-fade-up" style={{ maxWidth: '660px' }}>
-                        <h2 style={{ fontSize: '20px', fontWeight: 800, marginBottom: '6px', letterSpacing: '-0.3px' }}>
+                        <h2 style={{
+                            fontFamily: "'Playfair Display', serif",
+                            fontSize: '22px', fontWeight: 700, marginBottom: '6px', letterSpacing: '-0.3px',
+                            color: 'var(--text-primary)'
+                        }}>
                             Add New Question
                         </h2>
                         <p style={{ color: 'var(--text-secondary)', fontSize: '14px', marginBottom: '24px' }}>
@@ -188,8 +192,8 @@ export default function AdminPanel() {
                                 {addLoading ? (
                                     <>
                                         <span style={{
-                                            width: '14px', height: '14px', border: '2px solid rgba(0,0,0,0.25)',
-                                            borderTopColor: '#000', borderRadius: '50%',
+                                            width: '14px', height: '14px', border: '2px solid rgba(255,255,255,0.3)',
+                                            borderTopColor: '#fff', borderRadius: '50%',
                                             animation: 'spin 0.75s linear infinite', display: 'inline-block'
                                         }} />
                                         Adding...
@@ -204,7 +208,11 @@ export default function AdminPanel() {
                 {tab === 'Questions' && (
                     <div className="card animate-fade-up">
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-                            <h2 style={{ fontSize: '20px', fontWeight: 800, letterSpacing: '-0.3px' }}>
+                            <h2 style={{
+                                fontFamily: "'Playfair Display', serif",
+                                fontSize: '22px', fontWeight: 700, letterSpacing: '-0.3px',
+                                color: 'var(--text-primary)'
+                            }}>
                                 Question Bank
                             </h2>
                             <span className="badge badge-skill" style={{ fontSize: '13px', padding: '5px 14px' }}>
@@ -221,13 +229,13 @@ export default function AdminPanel() {
                                     <div key={q._id} className="card-sm" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '16px' }}>
                                         <div style={{ flex: 1 }}>
                                             <span className="badge badge-skill" style={{ marginBottom: '10px', display: 'inline-flex' }}>{q.skill}</span>
-                                            <p style={{ fontSize: '14px', fontWeight: 600, marginBottom: '10px', lineHeight: 1.55 }}>{q.question}</p>
+                                            <p style={{ fontSize: '14px', fontWeight: 600, marginBottom: '10px', lineHeight: 1.55, color: 'var(--text-primary)' }}>{q.question}</p>
                                             <div className="skills-wrap">
                                                 {q.options.map(o => (
                                                     <span key={o} className="badge" style={{
-                                                        background: o === q.correctAnswer ? 'rgba(16,185,129,0.12)' : 'rgba(255,255,255,0.04)',
-                                                        color: o === q.correctAnswer ? 'var(--emerald-light)' : 'var(--text-secondary)',
-                                                        border: `1px solid ${o === q.correctAnswer ? 'rgba(16,185,129,0.25)' : 'var(--border)'}`,
+                                                        background: o === q.correctAnswer ? 'var(--sage-soft)' : 'var(--bg-warm)',
+                                                        color: o === q.correctAnswer ? 'var(--sage)' : 'var(--text-secondary)',
+                                                        border: `1px solid ${o === q.correctAnswer ? 'var(--border-sage)' : 'var(--border)'}`,
                                                         fontSize: '11px', padding: '3px 10px'
                                                     }}>{o}</span>
                                                 ))}
@@ -247,7 +255,11 @@ export default function AdminPanel() {
                 {tab === 'Students' && (
                     <div className="card animate-fade-up">
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-                            <h2 style={{ fontSize: '20px', fontWeight: 800, letterSpacing: '-0.3px' }}>All Students</h2>
+                            <h2 style={{
+                                fontFamily: "'Playfair Display', serif",
+                                fontSize: '22px', fontWeight: 700, letterSpacing: '-0.3px',
+                                color: 'var(--text-primary)'
+                            }}>All Students</h2>
                             <div style={{ display: 'flex', gap: '10px' }}>
                                 <span className="badge badge-skill" style={{ fontSize: '12px', padding: '4px 12px' }}>{students.length} total</span>
                                 <span className="badge badge-recommended" style={{ fontSize: '12px', padding: '4px 12px' }}>{recommendedCount} recommended</span>
@@ -279,7 +291,7 @@ export default function AdminPanel() {
                                                 </td>
                                                 <td style={{
                                                     fontWeight: 800, fontSize: '15px',
-                                                    color: s.testScore >= 60 ? 'var(--emerald)' : 'var(--rose)'
+                                                    color: s.testScore >= 60 ? 'var(--sage)' : 'var(--terracotta)'
                                                 }}>
                                                     {s.testScore}%
                                                 </td>
@@ -305,7 +317,11 @@ export default function AdminPanel() {
                 {tab === 'Companies' && (
                     <div className="card animate-fade-up">
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-                            <h2 style={{ fontSize: '20px', fontWeight: 800, letterSpacing: '-0.3px' }}>All Companies</h2>
+                            <h2 style={{
+                                fontFamily: "'Playfair Display', serif",
+                                fontSize: '22px', fontWeight: 700, letterSpacing: '-0.3px',
+                                color: 'var(--text-primary)'
+                            }}>All Companies</h2>
                             <span className="badge badge-skill" style={{ fontSize: '12px', padding: '4px 12px' }}>{companies.length} total</span>
                         </div>
                         {loading ? <div className="spinner" /> : (

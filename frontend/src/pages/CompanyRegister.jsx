@@ -33,20 +33,13 @@ export default function CompanyRegister() {
 
     return (
         <div className="page-center" style={{ alignItems: 'flex-start', paddingTop: '40px', paddingBottom: '40px' }}>
-            <div style={{
-                position: 'fixed', top: 0, right: 0,
-                width: '400px', height: '400px', borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(124,58,237,0.07) 0%, transparent 70%)',
-                pointerEvents: 'none', transform: 'translate(30%, -30%)'
-            }} />
-
             <div className="auth-card" style={{ maxWidth: '520px' }}>
                 <Link to="/company/login" style={{
                     display: 'inline-flex', alignItems: 'center', gap: '6px',
                     color: 'var(--text-muted)', fontSize: '13px', fontWeight: 600,
                     marginBottom: '28px', transition: 'color 0.2s'
                 }}
-                    onMouseEnter={e => e.currentTarget.style.color = 'var(--violet-light)'}
+                    onMouseEnter={e => e.currentTarget.style.color = 'var(--terracotta)'}
                     onMouseLeave={e => e.currentTarget.style.color = 'var(--text-muted)'}
                 >
                     ← Already have an account?
@@ -54,21 +47,14 @@ export default function CompanyRegister() {
 
                 <div className="auth-logo">
                     <div className="logo-badge" style={{
-                        color: 'var(--violet-light)',
-                        borderColor: 'rgba(124,58,237,0.3)',
-                        background: 'rgba(124,58,237,0.1)'
+                        color: 'var(--terracotta)',
+                        borderColor: 'rgba(192,81,58,0.3)',
+                        background: 'var(--terracotta-soft)'
                     }}>
                         🏢 Company Portal
                     </div>
-                    <h2 style={{
-                        background: 'linear-gradient(135deg, #fff 20%, var(--violet-light) 100%)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        backgroundClip: 'text'
-                    }}>
-                        Register Company
-                    </h2>
-                    <p>Post internships & discover top talent</p>
+                    <h2>Register Company</h2>
+                    <p>Post internships &amp; discover top talent</p>
                 </div>
 
                 {error && (
@@ -122,7 +108,7 @@ export default function CompanyRegister() {
                                 value={form.requiredSkills} onChange={handleChange} required />
                         </div>
                         <p style={{ fontSize: '12px', color: 'var(--text-muted)', marginTop: '6px' }}>
-                            Separate skills with commas — used for AI matching
+                            Separate skills with commas — used for skill matching
                         </p>
                     </div>
 
@@ -130,7 +116,7 @@ export default function CompanyRegister() {
                         className="btn btn-secondary"
                         type="submit"
                         disabled={loading}
-                        style={{ width: '100%', padding: '15px', fontSize: '15px', fontWeight: 800, marginTop: '4px' }}
+                        style={{ width: '100%', padding: '14px', fontSize: '15px', fontWeight: 800, marginTop: '4px' }}
                     >
                         {loading ? (
                             <>
@@ -147,7 +133,7 @@ export default function CompanyRegister() {
 
                 <div style={{ textAlign: 'center', marginTop: '20px', fontSize: '14px', color: 'var(--text-secondary)' }}>
                     Already registered?{' '}
-                    <Link to="/company/login" style={{ color: 'var(--violet-light)', fontWeight: 700 }}>
+                    <Link to="/company/login" style={{ color: 'var(--terracotta)', fontWeight: 700 }}>
                         Sign in →
                     </Link>
                 </div>

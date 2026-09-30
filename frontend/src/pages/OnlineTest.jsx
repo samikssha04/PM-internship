@@ -85,13 +85,13 @@ export default function OnlineTest() {
             {/* Navbar */}
             <nav className="navbar">
                 <div className="brand">
-                    <span>📝</span> Screening Test
+                    <span>📝</span> Screening <span className="accent">Test</span>
                 </div>
                 <div className="nav-right">
                     {company && (
                         <div style={{
                             display: 'flex', alignItems: 'center', gap: '8px',
-                            background: 'rgba(255,255,255,0.04)', border: '1px solid var(--border)',
+                            background: 'var(--bg-warm)', border: '1px solid var(--border)',
                             padding: '6px 14px', borderRadius: '40px', fontSize: '13px', color: 'var(--text-secondary)',
                             fontWeight: 600
                         }}>
@@ -106,8 +106,9 @@ export default function OnlineTest() {
 
                 {/* Progress Section */}
                 <div style={{
-                    background: 'rgba(255,255,255,0.03)', border: '1px solid var(--border)',
-                    borderRadius: '16px', padding: '20px 24px', marginBottom: '24px'
+                    background: 'var(--bg-card)', border: '1px solid var(--border)',
+                    borderRadius: '16px', padding: '20px 24px', marginBottom: '24px',
+                    boxShadow: 'var(--shadow-card)'
                 }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
                         <div>
@@ -116,7 +117,7 @@ export default function OnlineTest() {
                             </span>
                         </div>
                         <div style={{ display: 'flex', gap: '16px', fontSize: '13px' }}>
-                            <span style={{ color: 'var(--emerald)', fontWeight: 700 }}>✓ {answered} answered</span>
+                            <span style={{ color: 'var(--sage)', fontWeight: 700 }}>✓ {answered} answered</span>
                             <span style={{ color: 'var(--text-muted)', fontWeight: 600 }}>{questions.length - answered} remaining</span>
                         </div>
                     </div>
@@ -137,14 +138,14 @@ export default function OnlineTest() {
                                     onClick={() => setCurrent(idx)}
                                     style={{
                                         width: '34px', height: '34px', borderRadius: '8px', cursor: 'pointer',
-                                        border: isCurrent ? '2px solid var(--saffron)' : '1px solid var(--border)',
+                                        border: isCurrent ? '2px solid var(--amber)' : '1px solid var(--border)',
                                         fontSize: '12px', fontWeight: 800, fontFamily: 'inherit',
                                         background: isAnswered
-                                            ? 'linear-gradient(135deg, #059669, #10b981)'
+                                            ? 'linear-gradient(135deg, #3d7a4f, var(--sage))'
                                             : isCurrent
-                                                ? 'rgba(245,158,11,0.15)'
-                                                : 'rgba(255,255,255,0.04)',
-                                        color: isAnswered ? '#fff' : isCurrent ? 'var(--saffron)' : 'var(--text-muted)',
+                                                ? 'var(--amber-soft)'
+                                                : 'var(--bg-warm)',
+                                        color: isAnswered ? '#fff' : isCurrent ? 'var(--amber-dark)' : 'var(--text-secondary)',
                                         transition: 'all 0.15s'
                                     }}
                                 >
@@ -169,10 +170,11 @@ export default function OnlineTest() {
 
                         {/* Question */}
                         <h2 style={{
-                            fontSize: '18px', fontWeight: 700, marginBottom: '28px',
-                            lineHeight: 1.6, color: 'var(--text-primary)'
+                            fontFamily: "'Playfair Display', serif",
+                            fontSize: '20px', fontWeight: 700, marginBottom: '28px',
+                            lineHeight: 1.5, color: 'var(--text-primary)'
                         }}>
-                            <span style={{ color: 'var(--saffron)', fontWeight: 800, marginRight: '8px' }}>
+                            <span style={{ color: 'var(--amber-dark)', fontWeight: 800, marginRight: '8px' }}>
                                 Q{current + 1}.
                             </span>
                             {q.question}
@@ -191,8 +193,8 @@ export default function OnlineTest() {
                                         <span style={{
                                             width: '28px', height: '28px', borderRadius: '7px', flexShrink: 0,
                                             display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                            background: isSelected ? 'var(--violet)' : 'rgba(255,255,255,0.07)',
-                                            color: isSelected ? '#fff' : 'var(--text-muted)',
+                                            background: isSelected ? 'var(--amber)' : 'var(--border-light)',
+                                            color: isSelected ? '#fff' : 'var(--text-secondary)',
                                             fontSize: '12px', fontWeight: 800, transition: 'all 0.15s'
                                         }}>
                                             {LETTERS[oi]}

@@ -11,17 +11,9 @@ export default function Results() {
 
     const pass = result.score >= 60;
     const wrongCount = result.total - result.correct;
-    const percentage = result.score;
 
     return (
         <div className="page-center" style={{ flexDirection: 'column', padding: '40px 24px' }}>
-            {/* Ambient */}
-            <div style={{
-                position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
-                width: '600px', height: '600px', borderRadius: '50%', pointerEvents: 'none',
-                background: `radial-gradient(circle, ${pass ? 'rgba(16,185,129,0.06)' : 'rgba(244,63,94,0.06)'} 0%, transparent 70%)`
-            }} />
-
             <div className="auth-card animate-fade-up" style={{ maxWidth: '500px', textAlign: 'center', position: 'relative' }}>
 
                 {/* Auto-submit notice */}
@@ -34,11 +26,11 @@ export default function Results() {
                 {/* Result label */}
                 <div style={{
                     display: 'inline-flex', alignItems: 'center', gap: '6px',
-                    background: pass ? 'rgba(16,185,129,0.1)' : 'rgba(244,63,94,0.1)',
-                    border: `1px solid ${pass ? 'rgba(16,185,129,0.25)' : 'rgba(244,63,94,0.25)'}`,
+                    background: pass ? 'var(--sage-soft)' : 'rgba(192,81,58,0.1)',
+                    border: `1.5px solid ${pass ? 'var(--border-sage)' : 'rgba(192,81,58,0.25)'}`,
                     padding: '6px 18px', borderRadius: '40px',
                     fontSize: '11px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase',
-                    color: pass ? 'var(--emerald-light)' : 'var(--rose-light)',
+                    color: pass ? 'var(--sage)' : 'var(--terracotta)',
                     marginBottom: '24px'
                 }}>
                     {pass ? '✅ Test Passed' : '❌ Test Failed'}
@@ -54,20 +46,21 @@ export default function Results() {
                 <div style={{
                     padding: '20px 24px',
                     borderRadius: '14px', marginBottom: '24px',
-                    background: pass ? 'rgba(16,185,129,0.07)' : 'rgba(244,63,94,0.07)',
-                    border: `1px solid ${pass ? 'rgba(16,185,129,0.2)' : 'rgba(244,63,94,0.2)'}`
+                    background: pass ? 'var(--sage-soft)' : 'rgba(192,81,58,0.06)',
+                    border: `1px solid ${pass ? 'var(--border-sage)' : 'rgba(192,81,58,0.2)'}`
                 }}>
                     <div style={{ fontSize: '32px', marginBottom: '10px' }}>{pass ? '🎉' : '💪'}</div>
                     <h2 style={{
-                        fontSize: '22px', fontWeight: 800, marginBottom: '10px', letterSpacing: '-0.3px',
-                        color: pass ? 'var(--emerald-light)' : 'var(--rose-light)'
+                        fontFamily: "'Playfair Display', serif",
+                        fontSize: '22px', fontWeight: 700, marginBottom: '8px', letterSpacing: '-0.3px',
+                        color: pass ? 'var(--sage)' : 'var(--terracotta)'
                     }}>
                         {pass ? 'Congratulations!' : 'Keep Going!'}
                     </h2>
                     <p style={{ color: 'var(--text-secondary)', fontSize: '14px', lineHeight: 1.65 }}>
                         {pass
-                            ? "You've been marked as a Recommended candidate! Companies can now find you as a priority pick."
-                            : `You scored ${result.score}%. A score ≥ 60% is needed to be Recommended. Apply again to retake the test!`
+                            ? "You've been marked as a Recommended candidate! Companies can now discover you as a priority talent."
+                            : `You scored ${result.score}%. A score ≥ 60% is needed to be Recommended. You can retake the test!`
                         }
                     </p>
                 </div>
@@ -75,15 +68,15 @@ export default function Results() {
                 {/* Stats Row */}
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px', marginBottom: '24px' }}>
                     <div className="stat-card">
-                        <div className="stat-num" style={{ color: 'var(--emerald)', fontSize: '26px' }}>{result.correct}</div>
+                        <div className="stat-num" style={{ color: 'var(--sage)', fontSize: '26px' }}>{result.correct}</div>
                         <div className="stat-label">Correct</div>
                     </div>
                     <div className="stat-card">
-                        <div className="stat-num" style={{ color: 'var(--rose)', fontSize: '26px' }}>{wrongCount}</div>
+                        <div className="stat-num" style={{ color: 'var(--terracotta)', fontSize: '26px' }}>{wrongCount}</div>
                         <div className="stat-label">Wrong</div>
                     </div>
                     <div className="stat-card">
-                        <div className="stat-num" style={{ fontSize: '26px' }}>{result.total}</div>
+                        <div className="stat-num" style={{ color: 'var(--amber-dark)', fontSize: '26px' }}>{result.total}</div>
                         <div className="stat-label">Total</div>
                     </div>
                 </div>
